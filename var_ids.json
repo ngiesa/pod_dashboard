@@ -1,0 +1,29 @@
+{   "vital_puls": "1268",
+    "vital_hr": "100151",
+    "vital_rr": "100146,1267,101702,101710",
+    "vital_tmp": "100153,100152",
+    "vital_spo2": "100154,100155",
+    "vital_nipb": "100149",
+    "vital_ibp": "100150",
+
+    "dem_height": "7",
+    "dem_weight": "6",
+    
+    "prem_org_unit": "100",
+    "prem_org_name": "101",
+
+    "prem_sex": "5",
+    "prem_age": "0",
+    "prem_dia_main": "100004",
+    "prem_dia_sub": "100088",
+    "prem_asa": "100071",
+    "prem_nclass": "100070",
+    "prem_height": "100078",
+    "prem_weight": "100079",
+    "prem_area": "100083",
+    "prem_awm": "100042",
+    "prem_anes": "100043",
+    "prem_opward": "105510",
+    "pream_proc": "100003"
+    
+}
