@@ -1,0 +1,32 @@
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: #04032C;
+}
+
+.nav-link {
+    color: black;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16rem;
+    padding: 2rem 1rem;
+    background-color: #f8f9fa
+}
+
+.content {
+    margin-left: 16rem;
+    margin-right: 0rem
+}
+
+
+/* Make that div like a card */
+.filter-menu {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
