@@ -50,7 +50,7 @@ def render_home_page():
                             ),
                             html.Div(id="output_clinical_unit"),
                         ],
-                        style={"padding": "10px", "padding-left": "30px"},
+                        style={"padding": "10px"},
                     ),
                     html.Div(
                         className="filter-dropdown",
@@ -68,7 +68,7 @@ def render_home_page():
                             ),
                             html.Div(id="output_surgical_area"),
                         ],
-                        style={"padding": "10px", "padding-left": "30px"},
+                        style={"padding": "10px"}
                     ),
                     html.Div(
                         className="filter-dropdown",
@@ -88,7 +88,7 @@ def render_home_page():
                             ),
                             html.Div(id="output-date-picker"),
                         ],
-                        style={"padding": "10px", "padding-left": "30px"},
+                        style={"padding": "10px"},
                     ),
                     html.Div(
                         className="pick-ranger",
@@ -99,16 +99,19 @@ def render_home_page():
                             ),
                             html.Div(id="age-output"),
                         ],
-                        style={"padding": "10px", "padding-left": "30px"},
+                        style={"padding": "10px"}
                     ),
                 ],
                 style={
                     "border-radius": "10px",
-                    "padding": "10px",
+                    # "padding": "10px",
+                    "padding": "30px",
                     "background-color": "#f8f9fa",
                     "border": "2px solid #f8f9fa",
-                    "margin-top": "20px",
+                    "margin-top": "50px",
                     "margin-bottom": "30px",
+                    # "padding-left": "30px",
+                    # "padding-right": "30px",
                 },
             ),
             # TODO: PHA: When should this be shown?

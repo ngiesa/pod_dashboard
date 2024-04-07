@@ -59,7 +59,6 @@ sidebar = html.Div(
                     style={"display": "inline", "padding": "10px"},
                 ),
             ],
-            style={"padding": "0px 0px 10px 0px"},
         ),
         html.Hr(),
         dbc.Nav(

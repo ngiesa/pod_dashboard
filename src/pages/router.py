@@ -46,6 +46,7 @@ def route(app):
             }
         }
         table = build_filtered_master_table(ddm=ddm, filter_condition=filter_dict)
+        logger.info(table)
         filter_dict = {
             "end_date": {"variable": "prem_age", "value": value[1], "condition": "less"}
         }

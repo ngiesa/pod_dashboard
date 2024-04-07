@@ -28,33 +28,33 @@ class DummyDataManager:
     def filter_main_table(self, filter_condition):
         return pd.DataFrame(
             {
-                "RISK": [0.9, 0.1, 1.0, 0.2],
-                "COPID": [0, 1, 2, 3],
-                "BEGANORG": [0, 1, 2, 3],
-                "ENDANORG": [1, 2, 3, 4],
-                "OTHER": [3, 1, 4, 5],
+                "RISK": [0.9, 0.1, 1.0, 0.2, 0.5],
+                "COPID": [0, 1, 2, 3, 4],
+                "BEGANORG": [0, 1, 2, 3, 4],
+                "ENDANORG": [1, 2, 3, 4, 5],
+                "OTHER": [3, 1, 4, 5, 6],
             }
         )
 
     def reset_filter(self):
         return pd.DataFrame(
             {
-                "RISK": [0.9, 0.1, 1.0, 0.2],
-                "COPID": [0, 1, 2, 3],
-                "BEGANORG": [0, 1, 2, 3],
-                "ENDANORG": [1, 2, 3, 4],
-                "OTHER": [3, 1, 4, 5],
+                "RISK": [0.9, 0.1, 1.0, 0.2, 0.5],
+                "COPID": [0, 1, 2, 3, 4],
+                "BEGANORG": [0, 1, 2, 3, 4],
+                "ENDANORG": [1, 2, 3, 4, 5],
+                "OTHER": [3, 1, 4, 5, 6],
             }
         )
 
     def display_master_table(self):
         return pd.DataFrame(
             {
-                "RISK": [90.0],
-                "COPID": [0, 1, 2, 3],
-                "BEGANORG": [0, 1, 2, 3],
-                "ENDANORG": [1, 2, 3, 4],
-                "OTHER": [3, 1, 4, 5],
+                "RISK": [0.9, 0.1, 1.0, 0.2, 0.5],
+                "COPID": [0, 1, 2, 3, 4],
+                "BEGANORG": [0, 1, 2, 3, 4],
+                "ENDANORG": [1, 2, 3, 4, 5],
+                "OTHER": [3, 1, 4, 5, 6],
             }
         )
 
