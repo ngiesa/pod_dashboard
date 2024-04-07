@@ -11,12 +11,13 @@ def build_filtered_master_table(ddm, filter_condition={}):
 
     logger.info("filter master")
 
-    if filter_condition != {}:
-        df_master = ddm.filter_main_table(filter_condition)
+    logger.info(filter_condition)
 
-    if len(list(filter_condition.values())) == 0:
+    if len(filter_condition) == 0:
         df_master = ddm.reset_filter()
         logger.info("INIT DATA")
+    else:
+        df_master = ddm.filter_main_table(filter_condition)
 
     if len(df_master) == 0:
         # if not data is returned for filter conditions
@@ -38,6 +39,11 @@ def build_filtered_master_table(ddm, filter_condition={}):
         style_as_list_view=True,
         selected_rows=[],
         row_selectable="single",
+        style_table = {
+            # "border": "1px solid black",
+            "border-radius": "15px",
+            "overflow": "hidden",
+        },
         style_data={
             "whiteSpace": "normal",
             "textOverflow": "ellipsis",

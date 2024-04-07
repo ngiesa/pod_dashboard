@@ -1,6 +1,7 @@
 # from conn.hdl.data_manager import DashDataManager
 import dash_bootstrap_components as dbc
 import pandas as pd
+import dash
 from dash import dcc, html
 
 from ..data_manager import ddm
@@ -106,12 +107,13 @@ def render_home_page():
                     "border-radius": "10px",
                     # "padding": "10px",
                     "padding": "30px",
-                    "background-color": "#f8f9fa",
+                    # "background-color": "#f8f9fa",
+                    # "background-color": "#343a40",
                     "border": "2px solid #f8f9fa",
                     "margin-top": "50px",
                     "margin-bottom": "30px",
-                    # "padding-left": "30px",
-                    # "padding-right": "30px",
+
+                    "background-color": "#D3D3D3"
                 },
             ),
             # TODO: PHA: When should this be shown?
@@ -127,16 +129,22 @@ def render_home_page():
             #         "justify-content": "center"
             #     }
             # ),
+            html.H4(
+                "Surgery Master Table",
+                className="menu-title-master",
+                style={"padding-bottom": "20px", "padding-left": "30px"},
+            ),
             html.Div(
                 className="master-op-table",
                 children=[
                     html.Div(
                         className="master-table-container",
                         children=[
-                            html.Div(
-                                "Surgery Master Table (check to see details)",
-                                className="menu-title-master",
-                            ),
+                            # html.Div(
+                            #     "Surgery Master Table (check to see details)",
+                            #     className="menu-title-master",
+                            #     style={"padding-bottom": "20px"},
+                            # ),
                             html.Div(
                                 id="master_table_content",
                                 className="master-table-content",
@@ -146,17 +154,23 @@ def render_home_page():
                                     )
                                 ],
                             ),
+                            html.P(
+                                "Click on a row to see details",
+                                className="menu-title-master",
+                                style={"padding-top": "30px"},
+                            ),
                         ],
                     ),
                     html.Div(id="datatable-row-ids-container"),
                 ],
                 style={
                     "border-radius": "10px",
-                    "padding": "10px",
-                    "background-color": "#f8f9fa",
+                    "padding": "30px",
+                    # "background-color": "#f8f9fa",
+                    "background-color": "#D3D3D3",
                     "border": "2px solid #f8f9fa",
                 },
             ),
         ],
-        style={"background-image": 'url("./assets/bed.jpg")'},
+        style={"background-image": dash.get_asset_url("bed.jpg")},
     )

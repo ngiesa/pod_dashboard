@@ -21,7 +21,8 @@ from src.pages import router
 app = dash.Dash(
     __name__,
     external_stylesheets=[
-        dbc.themes.BOOTSTRAP,
+        # dbc.themes.SLATE,
+        dbc.themes.LUX,
         "https://use.fontawesome.com/releases/v5.7.2/css/all.css",
     ],
     suppress_callback_exceptions=False,
@@ -41,12 +42,27 @@ SIDEBAR_STYLE = {
     "bottom": 0,
     "width": "16rem",
     "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
+    # "background-color": "#f8f9fa",
+    # Make it a little darker
+    # "background-color": "#343a40",
+    "background-color": "#D3D3D3"
 }
 
 sidebar = html.Div(
     [
-        html.H3(children="POD Cockpit", className="header-title"),
+        html.Div(
+            html.Img(
+                src=app.get_asset_url("pod_logo.png"),
+                className="logo",
+                style={"width": "90%"},
+            ),
+            style={"textAlign": "center", "padding-bottom": "20px"},
+        ),
+        html.H3(
+            children="POD Cockpit",
+            className="header-title",
+
+        ),
         html.Div(
             children=[
                 html.P(
@@ -54,9 +70,10 @@ sidebar = html.Div(
                     className="lead",
                     style={"display": "inline"},
                 ),
+                # TODO: PHA: Should this be clickable?
                 html.I(
                     className="fas fa-sync",
-                    style={"display": "inline", "padding": "10px"},
+                    style={"display": "inline", "padding-left": "15px"},
                 ),
             ],
         ),
