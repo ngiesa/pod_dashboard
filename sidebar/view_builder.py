@@ -11,11 +11,12 @@ def build_filtered_master_table(ddm: DashDataManager, filter_condition={}):
     print("filter master")
         
     if filter_condition != {}:
+        print(filter_condition)
         df_master = ddm.filter_main_table(filter_condition)
     
     if (len(list(filter_condition.values())) == 0):
+        print("reset filters")
         df_master = ddm.reset_filter()
-        print("INIT DATA")
     
     if len(df_master) == 0:
         # if not data is returned for filter conditions
@@ -25,29 +26,31 @@ def build_filtered_master_table(ddm: DashDataManager, filter_condition={}):
     df_master['RISK'] = df_master['RISK'].astype(float)
     
     return  dash_table.DataTable(data = df_master.to_dict('records'),
-                                                     columns=[{"name": i, "id": i} for i in df_master.columns if i not in ["COPID",
-                                                                                                                           "BEGANORG",
-                                                                                                                           "ENDANORG", 
-                                                                                                                           "BEGAWORG", 
-                                                                                                                           "ENDAWORG"]], 
-                                                     id='master_table_check',
-                                                     cell_selectable=False,
-                                                     page_size= 20,
-                                                     style_as_list_view=True,
-                                                     selected_rows=[],
-                                                     row_selectable='single',
+                                                    columns=[{"name": i, "id": i} for i in df_master.columns if i not in ["COPID",
+                                                                                                                        "BEGANORG",
+                                                                                                                        "ENDANORG", 
+                                                                                                                        "BEGAWORG", 
+                                                                                                                        "ENDAWORG"]
+                                                            ], 
+                                                    id='master_table_check',
+                                                    cell_selectable=False,
+                                                    page_size= 20,
+                                                    style_as_list_view=True,
+                                                    selected_rows=[],
+                                                    row_selectable='single',
                                                         style_data = {
                                                             'whiteSpace': 'normal',
                                                             'textOverflow': 'ellipsis',
                                                             'width': 'auto',
-                                                                
+                                                            'maxWidth': 100  
                                                             }, 
                                                         style_cell = {
                                                             'fontSize':16, 
                                                             'font-family':'sans-serif', 
                                                             'text-align': 'center',
+                                                            'overflow': 'hidden',
                                                             'textOverflow': 'ellipsis',
-                                                            'maxWidth': 400
+                                                            'maxWidth': 100
                                                             },
                                                         style_data_conditional=[
                                                             {
@@ -55,7 +58,7 @@ def build_filtered_master_table(ddm: DashDataManager, filter_condition={}):
                                                                     'filter_query': '{RISK} >= 0.8',
                                                                     'column_id': 'RISK'
                                                                 },
-                                                                'backgroundColor': 'tomato',
+                                                                'backgroundColor': '#EA5451',
                                                                 'color': 'black'
                                                             },
                                                             {
@@ -71,7 +74,7 @@ def build_filtered_master_table(ddm: DashDataManager, filter_condition={}):
                                                                     'filter_query': '{RISK} <= 0.4',
                                                                     'column_id': 'RISK'
                                                                 },
-                                                                'backgroundColor': '#2E8B57',
+                                                                'backgroundColor': '#78AD6C',
                                                                 'color': 'black'
                                                             },
                                                         ]
@@ -87,11 +90,16 @@ def build_details_main_view(ddm: DashDataManager, index):
     c_begin = op_item["BEGANORG"]
     c_end = op_item["ENDANORG"]
     
+    print("DISPLAYING VITALS FOR", c_op_id)
+    
     hover_data = {"c_time": "|%B %d, %Y"}
     x = "c_time"
     
-    op_master = ddm.data_op_master[["c_op_id", "c_root_id"]]
+    op_master = ddm.df_op_master[["c_op_id", "c_root_id"]]
     c_root = op_master[op_master.c_op_id == c_op_id]["c_root_id"].iloc[0]
+    
+    print("root is ", c_root)
+    
     df_vitals = ddm.get_vitals(c_root=c_root, c_begin=c_begin, c_end=c_end)
     
     df_plot = df_vitals.groupby(["c_time", "var_name"])["c_value"]\
@@ -136,7 +144,7 @@ def build_details_main_view(ddm: DashDataManager, index):
         y_pul = None
     
     fig_pulse = px.scatter(
-            df_plot.reset_index(), 
+            df_plot.reset_index(),
             x=x, 
             y=y_pul,
             hover_data=hover_data,
@@ -198,8 +206,8 @@ def build_details_main_view(ddm: DashDataManager, index):
         
         
         fig.update_traces(marker=dict(size=8,
-                              line=dict(width=1)),
-                  selector=dict(mode='markers'))
+                        line=dict(width=1)),
+                        selector=dict(mode='markers'))
         
         fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
         fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
@@ -223,4 +231,3 @@ def build_details_main_view(ddm: DashDataManager, index):
             ], 
             style={'padding-top': '0px',}
         )
-    

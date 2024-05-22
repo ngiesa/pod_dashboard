@@ -1,0 +1,101 @@
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: #04032C;
+}
+
+.nav-link {
+    color: black;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16rem;
+    padding: 2rem 1rem;
+    background-color: #f8f9fa
+}
+
+.content {
+    margin-left: 16rem;
+    margin-right: 0rem
+}
+
+.header {
+    height: 300px;
+    color: #F7F7F7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center
+}
+
+.background {
+    flex-direction: row;
+    justify-content: center  
+}
+
+.DateInput_input, .DateInput_input_1 {
+    Height: 34px !important;
+    Width: 100% !important;
+    }
+
+.filter-menu {
+    display:flex;
+    padding-left: 55px; 
+    padding-right: 55px;
+    padding-top: 0px;
+    padding-bottom: 20px
+}
+
+.filter-dropdown {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0px; 
+    padding-left: 10px; 
+    flex: 1;
+    background-color:#FFFFFF
+}
+
+.menu-title {
+    padding-bottom: 5px;
+    padding-left: 0px;
+    background-color:#FFFFFF
+}
+
+.menu-title-master {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    background-color:#FFFFFF
+}
+
+.pick-ranger{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    flex:1.5; 
+    background-color:#FFFFFF; 
+    padding-right:0px;
+}
+
+.master-op-table {
+    padding-top: 10px;
+    padding-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 20px;
+}
+
+.master-table-container {
+    flex-direction: row;
+    padding-top: 10px;
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-bottom: 20px;
+}
+
+.master-table-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+}
